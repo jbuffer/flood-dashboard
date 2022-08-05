@@ -1,5 +1,7 @@
 # Flood locations in England
 
+<img src="https://media.giphy.com/media/if4XHBAIKurDohCbZF/giphy.gif" width="50px"/>
+
 ## Overview
 
 A Python application to show current flooded areas in the UK using data made available via the [Environment Agency API](https://environment.data.gov.uk/flood-monitoring/doc/reference).
