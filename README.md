@@ -6,12 +6,21 @@ A Python application to show current flooded areas in the UK using data made ava
 
 ## Structure
 
+
 ```
-├── src
+.
 ├── blue_logo
-├── images
-│   └── file23.ext
-└── README.md
+│   └── logo_water.png
+├── LICENSE
+├── requirements.txt
+├── image
+│   └── img.JPG
+├── src
+│   └── get_mapping_data.py
+│   └── mapping.py
+├── README.md
+└── app.py
+
 ```
 
 ## Next Steps
