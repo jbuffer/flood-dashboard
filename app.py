@@ -7,10 +7,6 @@ import pandas as pd
 from streamlit_folium import folium_static
 import requests
 from datetime import datetime
-import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib.ticker as mtick
-from matplotlib.ticker import MaxNLocator
 from src.get_flood_data import get_data, get_polys
 from src.mapping import create_map, get_coord
 
