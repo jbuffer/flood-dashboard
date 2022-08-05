@@ -10,6 +10,9 @@ from datetime import datetime
 from src.get_flood_data import get_data, get_polys
 from src.mapping import create_map, get_coord
 
+# making wide layout default
+st.set_page_config(layout="wide")
+
 "# Live Flood Data from the Environment Agency"
 
 # get source data
@@ -63,7 +66,6 @@ else:
 # call to render Folium map in Streamlit
 with st.expander('Map', True):
     st.write("Use the 'Postcode finder' widget in the sidebar to focus on a place, or zoom out to see a country-wide view:")
-
     # add map
     folium_static(m)
 
