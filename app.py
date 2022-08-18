@@ -60,12 +60,23 @@ else:
     coords_list = map(get_coord, df['polygon_url'])
     df['coords'] = list(coords_list) 
     m = create_map(lat, lon, df)
-    st.table(df)
+
+    table_df = df[['county', 'severity', 'riverorsea', 'description' ]]
+    table_df = table_df.drop_duplicates()
+    table_df.rename(columns={
+    'county':'County',
+    'severity': 'Warning',
+    'riverorsea': 'River or Sea',
+    'description': 'Description'
+    })
+
+    with st.expander('Details', True):
+        st.table(table_df)
 
 
 # call to render Folium map in Streamlit
-with st.expander('Map', True):
-    st.write("Use the 'Postcode finder' widget in the sidebar to focus on a place, or zoom out to see a country-wide view:")
-    # add map
-    folium_static(m)
+
+st.write("Use the 'Postcode finder' widget in the sidebar to focus on a place, or zoom out to see a country-wide view:")
+# add map
+folium_static(m)
 

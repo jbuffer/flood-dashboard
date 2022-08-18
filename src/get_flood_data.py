@@ -8,7 +8,7 @@ import streamlit as st
 @st.experimental_memo
 def get_data():
     dict_temp = {}
-    df = pd.DataFrame()
+    data = []
 
     url = 'http://environment.data.gov.uk/flood-monitoring/id/floods'
 
@@ -28,7 +28,8 @@ def get_data():
             dict_temp['riverorsea'] = r['items'][i]['floodArea']['riverOrSea']
             dict_temp['date'] = datetime.today()
             dict_temp['data_status'] = 'Data available'
-            df.concat(dict_temp, ignore_index=True)
+            data.append(dict_temp)
+        df = pd.DataFrame.from_dict(data)
     else:
         print('Cannot connect to server')
     
@@ -55,12 +56,12 @@ def get_polys(df):
     df['description']= np.nan
     df['CTY19NM'] = np.nan
     if df['flood_area_id'].hasnans==False:
-        for i in range(len(df['latlon_url'])):
+        for i in range(len(df['polygon_url'])):
             if i % 10 == 0:
                 print('{} of {} urls processed.\r'.format(i, len(df)))
-            r2 = requests.get(df['latlon_url'].iloc[i]).json()
-            df['long'].iloc[i] = r2['items']['long']
-            df['lat'].iloc[i] = r2['items']['lat']
+            r2 = requests.get(df['polygon_url'].iloc[i]).json()
+            df['long'].iloc[i] = r2['features'][0]['geometry']['coordinates'][0][0][i][0]
+            df['lat'].iloc[i] = r2['features'][0]['geometry']['coordinates'][0][0][i][1]
 
             r3 = requests.get(df['polygon_url'].iloc[i]).json()
             df['description'].iloc[i] =r3['features'][0]['properties']['DESCRIP']
