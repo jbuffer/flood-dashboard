@@ -32,7 +32,7 @@ st.sidebar.write('**Postcode**')
 st.sidebar.write('Enter a postcode in the "Postcode finder" widget to change the focus of the map')
 
 try:
-    latlon = st.sidebar.text_input('Postcode finder:', value='RH20 4EE', max_chars=8, key=None, type='default')
+    latlon = st.sidebar.text_input('Postcode finder:', value='SW1A 2AA', max_chars=8, key=None, type='default')
     r = requests.get('https://api.postcodes.io/postcodes/{}'.format(latlon))
     lat = r.json()['result']['latitude']
     lon = r.json()['result']['longitude']

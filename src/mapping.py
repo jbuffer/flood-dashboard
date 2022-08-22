@@ -11,7 +11,7 @@ def create_map(lat, lon, df):
     m = folium.Map(location=[lat, lon],
                 min_zoom=7, 
                 max_zoom=16,
-                zoom_start=13)
+                zoom_start=12)
 
     folium.TileLayer('cartodb dark_matter').add_to(m)
 
@@ -19,7 +19,7 @@ def create_map(lat, lon, df):
     style_1 = {'fillColor': '#dd1c77',  'color': '#dd1c77', "fillOpacity": 0.5}
     style_2 = {'fillColor': '#bdbdbd',  'color': '#756bb1', "fillOpacity": 0.5}
 
-    if df.empty == False:
+    if df is not None:
 
         flood = folium.FeatureGroup(name='Flooded area', show=True)
         m.add_child(flood)
