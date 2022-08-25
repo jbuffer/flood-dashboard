@@ -19,7 +19,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/jbuffer/flood-actions/main/d
 
 #format date and set parameters
 df['date'] = pd.to_datetime(df['date']).dt.date
-max_date = df['date'].max()
+max_date = date.today()
 min_date = df['date'].min()
 
 # add sidebar logo and input
