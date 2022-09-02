@@ -29,5 +29,6 @@ A Python application to show current flooded areas in the UK using data made ava
 ## Next Steps
 
 - Create tests
-- Using GitHub Actions, archive the alerts and make historical data available via the application
+- Add range filter rather than single date selection
+- On initialisation, zoomed out to show all of England
 
