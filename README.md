@@ -13,20 +13,22 @@ A Python application to show current flooded areas in the UK using data made ava
 .
 ├── blue_logo
 │   └── logo_water.png
-├── LICENSE
-├── requirements.txt
 ├── image
 │   └── img.JPG
 ├── src
-│   └── get_mapping_data.py
-│   └── mapping.py
+│   └── utils.py
+├── .gitignore
+├── Dockerfile
+├── LICENSE
 ├── README.md
-└── app.py
+├── app.py
+└── requirements.txt
 
 ```
 
 ## Next Steps
 
 - Create tests
-- Using GitHub Actions, archive the alerts and make historical data available via the application
+- Add range filter rather than single date selection
+- On initialisation, zoomed out to show all of England
 
