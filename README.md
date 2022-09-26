@@ -1,3 +1,4 @@
+![linting](https://github.com/jbuffer/flood-dashboard/actions/workflows/flake8.yml/badge.svg)
 # Flood locations in England
 
 <img src="https://media.giphy.com/media/if4XHBAIKurDohCbZF/giphy.gif" width="50px"/>
@@ -30,5 +31,5 @@ A Python application to show current flooded areas in the UK using data made ava
 
 - Create tests
 - Add range filter rather than single date selection
-- On initialisation, zoomed out to show all of England
+- Add in sparklines with trendline for an area
 
