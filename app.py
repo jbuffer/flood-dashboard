@@ -41,7 +41,7 @@ if df['flood_area_id'].hasnans is True:
 
 else:
     # create options
-    option = st.selectbox('Select your flooded area of interest:', (df.description)) # noqaE501
+    option = st.selectbox('Select your flooded area of interest:', (df['description'])) # noqaE501
     lat = df['lat'][df['description'] == option][0]
     lon = df['long'][df['description'] == option][0]
     st.write(f'''You selected an area in:
@@ -60,7 +60,6 @@ else:
         st.write(table_df.to_html(escape=False, index=False), unsafe_allow_html=True) # noqaE501
 
 # call to render Folium map in Streamlit
-
 st.write("Use the 'Postcode finder' widget in the sidebar to focus on a place, or zoom out to see a country-wide view:") # noqaE501
 # add map
 folium_static(m)
