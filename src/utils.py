@@ -8,7 +8,7 @@ def create_map(lat, lon, df, zoom=12):
     m = folium.Map(location=[lat, lon],
                    min_zoom=7,
                    max_zoom=16,
-                   zoom_start=13)
+                   zoom_start=10)
 
     folium.TileLayer('cartodb dark_matter').add_to(m)
 
@@ -51,9 +51,12 @@ def sparkline(data, figsize=(1.5, 0.75), **kwargs):
     """
     creates a sparkline
     """
-
-    data = data['coordinates'][0]
-    xs, ys = zip(*data)  # create lists of x and y values
+    if data['type'] == 'Polygon':
+        data = data['coordinates'][0]
+        xs, ys = zip(*data)  # create lists of x and y values
+    else:
+        data = data['coordinates'][1][0]
+        xs, ys = zip(*data)  # create lists of x and y values
 
     *_, ax = plt.subplots(1, 1, figsize=figsize, **kwargs)
     ax.plot(xs, ys, color='navy')
