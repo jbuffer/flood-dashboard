@@ -3,7 +3,6 @@ import os
 import streamlit as st
 import pandas as pd
 from streamlit_folium import folium_static
-from datetime import date
 from src.utils import create_map, sparkline
 
 # making wide layout default
