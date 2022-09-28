@@ -58,7 +58,5 @@ else:
     with st.expander('Details', True):
         st.write(table_df.to_html(escape=False, index=False), unsafe_allow_html=True) # noqaE501
 
-# call to render Folium map in Streamlit
-st.write("Use the 'Postcode finder' widget in the sidebar to focus on a place, or zoom out to see a country-wide view:") # noqaE501
 # add map
 folium_static(m)
