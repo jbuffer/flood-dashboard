@@ -29,7 +29,7 @@ st.sidebar.write(f'''
 **Date selection** \n
 Historical data goes back to {min_date}
 ''')
-date_in= st.sidebar.date_input('Select date of interest', min_value=min_date, max_value=max_date, value=date.today()) # noqaE501
+date_in= st.sidebar.date_input('Select date of interest', min_value=min_date, max_value=max_date, value=max_date) # noqaE501
 
 df = df[df['date'] == date_in]
 df.reset_index(inplace=True, drop=True)
