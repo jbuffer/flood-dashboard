@@ -55,7 +55,7 @@ def sparkline(data, figsize=(1.5, 0.75), **kwargs):
         data = data['coordinates'][0]
         xs, ys = zip(*data)  # create lists of x and y values
     else:
-        data = data['coordinates'][1][0]
+        data = data['coordinates'][0][0]
         xs, ys = zip(*data)  # create lists of x and y values
 
     *_, ax = plt.subplots(1, 1, figsize=figsize, **kwargs)
