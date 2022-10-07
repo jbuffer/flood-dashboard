@@ -51,11 +51,11 @@ else:
     m = create_map(lat, lon, df)
 
     # apply sparklines function for table
-    df['area'] = df['coordinates'].apply(sparkline)
-    table_df = df[['county', 'severity', 'riverorsea', 'description', 'area']]
+    df['main_area'] = df['coordinates'].apply(sparkline)
+    table_df = df[['county', 'severity', 'riverorsea', 'description', 'main_area']] # noqaE501
     table_df = table_df.drop_duplicates()
 
-    with st.expander('Details', True):
+    with st.expander('Details', False):
         st.write(table_df.to_html(escape=False, index=False), unsafe_allow_html=True) # noqaE501
 
 # add map
