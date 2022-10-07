@@ -44,16 +44,17 @@ else:
     lat = df['lat'][df['description'] == option].iloc[0]
     lon = df['long'][df['description'] == option].iloc[0]
     st.write(f'''You selected an area in:
-    {df['county'][df['description'] == option][0]} County''')
+    {df['county'][df['description'] == option].iloc[0]} County''')
 
     # apply create_map function for mapping
     df['coordinates'] = df['coords'].apply(literal_eval)
     m = create_map(lat, lon, df)
 
     # apply sparklines function for table
-    df['main_area'] = df['coordinates'].apply(sparkline)
-    table_df = df[['county', 'severity', 'riverorsea', 'description', 'main_area']] # noqaE501
+    df['mainarea'] = df['coordinates'].apply(sparkline)
+    table_df = df[['county', 'severity', 'riverorsea', 'description', 'mainarea']] # noqaE501
     table_df = table_df.drop_duplicates()
+    table_df = table_df[table_df['description'] == option]
 
     with st.expander('Details', False):
         st.write(table_df.to_html(escape=False, index=False), unsafe_allow_html=True) # noqaE501
