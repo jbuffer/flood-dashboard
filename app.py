@@ -41,8 +41,8 @@ if df['flood_area_id'].hasnans is True:
 else:
     # create options
     option = st.selectbox('Select your flooded area of interest:', (df['description'])) # noqaE501
-    lat = df['lat'][df['description'] == option][0]
-    lon = df['long'][df['description'] == option][0]
+    lat = df['lat'][df['description'] == option].iloc[0]
+    lon = df['long'][df['description'] == option].iloc[0]
     st.write(f'''You selected an area in:
     {df['county'][df['description'] == option][0]} County''')
 
